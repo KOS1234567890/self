@@ -1,0 +1,188 @@
+html, body {
+  margin: 0;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+header {
+  width: 1470px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+header div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+header div nav {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+header div nav a {
+  text-decoration: none;
+  color: black;
+}
+header div nav a:hover {
+  font-weight: bold;
+}
+
+@media (max-width:767px) {
+  body {
+    background-color: aquamarine;
+  }
+}
+@media (max-width:480px) {
+  body header {
+    width: 1470px;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+  body header div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+  body header div nav {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  body header div nav a {
+    text-decoration: none;
+    color: black;
+  }
+  body header div nav a:hover {
+    font-weight: bold;
+  }
+}
+main .mem_back {
+  background: no-repeat url("./img/img-sec01.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 347px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes text {
+  0% {
+    transform: translateX(10000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+main .mem_back h2 {
+  transform: translateX(1000px);
+  animation: text 1s cubic-bezier(0.04, -0.05, 0.25, 1.35) forwards;
+}
+main .mem_back h2 i {
+  color: white;
+  font-size: 70px;
+  font-weight: 1px;
+}
+main .menu {
+  margin-top: 5%;
+  text-align: center;
+}
+main .menu hr {
+  width: 2rem;
+}
+main .menu div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+main .menu div figure img {
+  transition: 2s;
+  transform: scale(1);
+  border-radius: 0px;
+}
+main .menu div figure img:hover {
+  transition: 2s;
+  transform: scale(1.5);
+  border-radius: 30px;
+}
+main .membership {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+main .membership img {
+  width: 100%;
+}
+main .membership article {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin: 0 5rem 0 50%;
+  width: 40%;
+}
+main .membership article div figure {
+  text-align: center;
+}
+main .membership article div figure p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid black;
+  border-radius: 50%;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+  height: 170px;
+  width: 170px;
+}
+main .membership article div figure figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+main .membership article div figure figcaption img {
+  margin-top: 10px;
+  width: 172px;
+}
+main .membership article div figure p img {
+  transition: 1s;
+  transform: rotateY(0);
+  border-radius: 0px;
+}
+main .membership article div figure p:hover img {
+  transition: 1s;
+  transform: rotateY(360deg);
+  border-radius: 0px;
+}
+main .membership article div figure figcaption {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main .membership article div figure figcaption b {
+  display: block;
+}
+main .membership article div figure:nth-of-type(1) > p {
+  background: #fff url("./img/ic_1.png") center no-repeat;
+}
+main .membership article div figure:nth-of-type(2) > p {
+  background: #fff url("./img/ic_2.png") center no-repeat;
+}
+main .membership article div figure:nth-of-type(3) > p {
+  background: #fff url("./img/ic_3.png") center no-repeat;
+}/*# sourceMappingURL=self.css.map */

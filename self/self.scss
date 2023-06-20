@@ -1,0 +1,207 @@
+
+//언더바 기호가 붙게되면 컴파일러가 안됨. -> css파일로 안나옴 || @import"_reset(.scss)";
+//태그 기본값 정의 ,공통스타일(헤더,버튼,풋터,배너,팝업,,,) ||| reset.css ,common.css
+// &-부모를 뜻함 상위자
+
+@import "_mixin";
+@import "_reset";
+//선택자를 콤마찍어서 할필요없이 @extend 를 사용하여 해도됨| 확장 문법
+
+//리스트 배열 변수에 여러값을 저장 $변수이름:('찾을 수 있는 값|키, 변수의 이름(숫자)':가,2,3);
+//꺼내 쓸땐 nth(변수,키) 사용
+//each는 주어진 값 만큼 반복
+
+// $icons :(ic-1,ic-2,ic-3);
+// figure{
+//     &:nth-of-type(1)>p{
+//         background: url('./img/#{nth($icons,2)}.png') center no-repeat;
+//     }
+// }
+// >p{
+//     background: url('./img/#{nth($icons,2)}.png') center no-repeat;
+//     //본인이 변수라는것을 알려주는 #을 붙여줌
+//     // 문서보관=> #{변수명}
+//     //img/#{변수명}.png
+    
+// }
+
+
+body{
+}
+
+main{
+    .mem_back{
+        background:no-repeat url('./img/img-sec01.jpg');
+        background-size: cover;
+        width: 100%;
+        height: 347px;
+        
+        
+        @include flex(center,center);
+        @keyframes text {
+            0%{transform: translateX(10000px)}
+            100%{transform: translateX(0)}
+        }
+
+        h2{
+            transform: translateX(1000px);
+            animation: text 1s cubic-bezier(.04,-0.05,.25,1.35) forwards;
+            i{
+                color: white; font-size: 70px;
+                font-weight: 1px;
+            }
+            
+        }
+    }
+  
+    .menu{
+        margin-top: 5%;
+        text-align: center;
+        h2{
+        }
+        hr{
+            width: 2rem;
+        }
+        p{
+        }
+        
+        div{
+            @include flex(center,center);
+            margin-bottom: 5%;
+            figure{
+                
+                img{ 
+                    transition: 2s ; 
+                    transform: scale(1);
+                    border-radius: 0px;
+                 }
+                img:hover{
+                    transition: 2s ; 
+                    transform: scale(1.5);
+                    border-radius: 30px;
+                 }
+                p{}
+            }
+        }
+    }
+
+    .membership{
+        @include flex(flex-start,center);
+        text-align: left;
+        width: 100%;
+        position: relative;
+        img{
+            width: 100%;
+        }
+        article{
+            position: absolute;
+            right:0;
+            @include flex(flex-start,flex-end){
+                flex-direction: column;
+            }
+            margin: 0 5rem 0 50%;
+            width: 40%;
+            h2{}
+            p{}
+            div{
+                figure{
+                    text-align: center;
+                    p{
+                        @include flex(center,center);
+                        border: 3px solid black;
+                        border-radius:50%;
+                        box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+                        height: 170px;
+                        width: 170px;
+                        //본인이 변수라는것을 알려주는 #을 붙여줌
+                    }
+                    figcaption{
+                        @include flex(center,center);
+                        text-align: center;
+                        
+                        
+                        //float: right; 해당하는 요소를 오른쪽으로 정렬.
+                        img{
+                            margin-top: 10px;
+                            width:172px;
+                        }
+                    }
+                    p{
+                        img{ 
+                            transition: 1s ; 
+                            transform: rotateY(0);
+                            border-radius: 0px;
+                         }
+                    }
+                    p:hover{
+                        
+                        img{
+                            transition: 1s;
+                            transform: rotateY(360deg);
+                            border-radius: 0px;
+                        }
+                    }
+                    figcaption{
+                        text-align: center;
+                        @include flex(center,center){
+                            flex-direction: column; 
+                        }
+                        b{display: block;}
+                    }
+
+                    $icons :(1:ic_1,2:ic_2,3:ic_3);
+                    // &:nth-of-type(1)>p{
+                    //         background: #fff url('./img/#{nth($icons,1)}.png') center no-repeat;
+                    //     }  
+
+                    @each $number,$name in $icons{
+                        &:nth-of-type(#{$number})>p{
+                            background: #fff url('./img/#{$name}.png') center no-repeat;
+                        }                       
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import "_m-self";
+
+// 해상도 스타일(디바이스별 사이즈 ,mixin ,media)=> _media.scss
+// 각 페이지별 반응형 스타일 => _m-self.scss
+
+// PC최적화
+// 1. 페이지 코딩(헤더,메인,풋터) 
+// 2. 공통스타일 (헤더,풋터)
+// 3. 반응형 
+//     ㄴ분기점 파악(_media.scss)
+//     ㄴ각 페이지별 반응형 처리(_m-self.scss)
+
+// _reset.scss (태그 초기화,공통스타일,변수|믹스인)
+// _common.scss(공통스타일)
+// _media.scss(반응형 분기점 선언)
+
+// 공통 믹스인 (컬러, 버튼,팝업,그리드....)
+// _mixin.scss(명령모움)
+// _variable.scss(변수)
+//위에있는 명령모음이나 변수의 수가 얼마 없다면 리셋이나 커믄에 추가하는것이 용이함
+
+// #각페이지별 스타일 문서 - 1
+// index.scss(mixin,variable)/_m-index.scss(mobile,ipad)
+// sub.scss/_m-sub.scss(mobile,ipad)
+
+// #각페이지별 스타일 문서 - 2
+// index.html - index.scss(index.css)
+// sub.html - sub.scss(sub.css)
+// 한 페이지로 몰아버리면 헷갈려서 미쳐버림 차라리 그럴바에 분산시켜서 진행하는게 나을거라는 판단
+// 원본소스를 잘 작성해놓으면 반응형 작업 할때 수월하게 작업 가능
+
+//scss폴더 참고 
+// ㄴcomponent (영상,날씨, 폼,썸네일,리스트...|정의해두고 가져다가 쓸 수 있는 유형)
+// ㄴconfig (초기화)
+// ㄴlayout (가로,세로,UI)
+// ㄴthemes ()
+// ㄴutils(버튼,아이콘,,,)
+
+
+// ※너가 쓰기 좋게 해라!

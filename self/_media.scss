@@ -1,0 +1,47 @@
+
+
+
+// ''로 변수 만들어주기
+//767은 아이폰 세로화면
+$mobile : ('max-width:480px','max-width:767px');
+$tabliet : ('min-width:767px','max-width:1279px');
+$pc : 'min-width:1280px';
+
+
+@mixin device($dp){
+    @media($dp){
+        @content;
+    }
+}
+@include device(nth($mobile,2)){
+    body{
+        background-color: aquamarine;
+    }
+}
+@include device(nth($mobile,1)){
+    body{
+        header{
+            width: 1470px;
+            margin: 0 auto;
+            padding:1rem 0;
+        
+            div{
+                width:100%;
+                @include flex(center,space-between);
+                text-align: center;
+                nav{
+                    width: 40%;
+                    @include flex(center,space-around);
+                    a{
+                        text-decoration: none;
+                        color: black;
+                        &:hover{
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
